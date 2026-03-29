@@ -1,0 +1,17 @@
+streamlit
+langchain-community
+pypdf
+chromadb
+faiss-cpu
+pandas
+docx2txt
+python-docx
+fastapi
+uvicorn
+python-dotenv
+openpyxl
+xlrd==2.0.1
+python-dotenv
+groq
+huggingface_hub
+locust
