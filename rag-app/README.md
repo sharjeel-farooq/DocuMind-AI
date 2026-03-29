@@ -18,7 +18,7 @@ An intelligent Retrieval-Augmented Generation (RAG) system that allows users to 
 * Python
 * FastAPI
 * ChromaDB
-* Sentence Transformers
+* Hugging Face Inference API
 * LangChain
 
 ## 📌 How it works
@@ -166,46 +166,3 @@ Project structure
 frontend → FastAPI → pipeline.py →
         loader → chunker → embedder → vectorstore →
         retriever → generator → response
-
-
-rag-app/
-│
-├── app/                     # FastAPI app and routes
-│   ├── main.py              # App factory
-│   ├── routes.py            # Upload/query/eval endpoints
-│   └── schemas.py           # Request/response models
-│
-├── rag/                     # Core RAG pipeline
-│   ├── loader.py            # File loaders (pdf/txt/csv/xls/xlsx/docx/json)
-│   ├── chunker.py           # Text splitting and math symbol stripping
-│   ├── embedder.py          # HF embeddings client
-│   ├── vectorstore.py       # Chroma persistence helpers
-│   ├── retriever.py         # Embedding-based retrieval
-│   ├── generator.py         # Intent-aware LLM generation
-│   └── pipeline.py          # Orchestration (ingest, clean, embed, store)
-│
-├── data/                    # Local data storage
-│   ├── raw/                 # Uploaded raw files
-│   └── processed/           # Cleaned/chunked data (if used)
-│
-├── db/                      # Vector DB persistence
-│   └── chroma/              # Chroma files
-│
-├── frontend/                # Streamlit UI
-│   └── app.py
-│
-├── utils/                   # Shared helpers
-│   ├── config.py            # Env-driven settings
-│   ├── logger.py            # Logging config
-│   └── helper.py            # (if present)
-│
-├── tests/                   # Unit tests
-│   ├── test_retriever.py
-│   └── test_pipeline.py
-│
-├── requirements.txt
-├── README.md
-└── run.py                   # Scratch/entry script
-frontend → FastAPI → pipeline.py →
-    loader → chunker → embedder → vectorstore →
-    retriever → generator → response
