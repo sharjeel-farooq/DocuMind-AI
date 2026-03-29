@@ -18,7 +18,7 @@ An intelligent Retrieval-Augmented Generation (RAG) system that allows users to 
 * Python
 * FastAPI
 * ChromaDB
-* Hugging Face Inference API
+* Hugging Face Inference API (embeddings model: sentence-transformers/all-MiniLM-L6-v2)
 * LangChain
 
 ## 📌 How it works
