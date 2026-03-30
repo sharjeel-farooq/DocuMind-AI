@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 import streamlit as st
-from openai import RateLimitError
+from groq import RateLimitError
 
 # Ensure project root is on sys.path for imports when running via Streamlit
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -43,7 +43,7 @@ if uploaded_files:
             process_document(str(temp_path))
             st.success(f"Processed: {uploaded_file.name}")
         except RateLimitError:
-            st.error("OpenAI rate limit or quota exceeded while embedding. Check billing/quota or switch to a local model.")
+            st.error("Groq rate limit or quota exceeded while embedding. Check billing/quota or switch to a local model.")
         except Exception as exc:  # eslint-disable-line broad-except
             st.error(f"Failed to process {uploaded_file.name}: {exc}")
 
@@ -64,6 +64,6 @@ if ask_clicked and query:
             snippet_safe = snippet.replace("$", "\\$")
             st.write(f"- {source}: {snippet_safe}")
     except RateLimitError:
-        st.error("OpenAI rate limit or quota exceeded while generating an answer. Check billing/quota or switch to a local model.")
+        st.error("Groq rate limit or quota exceeded while generating an answer. Check billing/quota or switch to a local model.")
     except Exception as exc:  # eslint-disable-line broad-except
         st.error(f"Failed to answer: {exc}")
